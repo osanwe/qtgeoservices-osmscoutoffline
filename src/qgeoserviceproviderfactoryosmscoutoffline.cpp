@@ -9,9 +9,9 @@ QGeoMappingManagerEngine *QGeoServiceProviderFactoryOsmScoutOffline::createMappi
 }
 
 
-QGeoRoutingManagerEngine *QGeoServiceProviderFactoryOsmScoutOffline::createRoutingManagerEngine(
-        const QMap<QString, QVariant> &parameters, QGeoServiceProvider::Error *error,
-        QString *errorString) const
-{
-    return new QGeoRoutingManagerEngineOsmScoutOffline(parameters, error, errorString);
-}
+//QGeoRoutingManagerEngine *QGeoServiceProviderFactoryOsmScoutOffline::createRoutingManagerEngine(
+//        const QMap<QString, QVariant> &parameters, QGeoServiceProvider::Error *error,
+//        QString *errorString) const
+//{
+//    return new QGeoRoutingManagerEngineOsmScoutOffline(parameters, error, errorString);
+//}

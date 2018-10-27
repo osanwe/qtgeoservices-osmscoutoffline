@@ -6,6 +6,7 @@
 #include <QUrl>
 #include <QUrlQuery>
 #include <QtLocation/private/qgeotilefetcher_p.h>
+#include <QtLocation/private/qgeotilespec_p.h>
 
 #include "qgeomapreplyosmscoutoffline.h"
 
@@ -14,7 +15,7 @@ class QGeoTileFetcherOsmScoutOffline : public QGeoTileFetcher
     Q_OBJECT
 
 public:
-    expicit QGeoTileFetcherOsmScoutOffline(QGeoTiledMappingManagerEngine *parent = 0);
+    explicit QGeoTileFetcherOsmScoutOffline(QGeoTiledMappingManagerEngine *parent = 0);
     void setParams(const QMap<QString, QVariant> &params);
 
 private:

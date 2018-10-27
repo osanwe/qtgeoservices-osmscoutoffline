@@ -3,22 +3,22 @@ QT += location location-private network
 
 TEMPLATE = lib
 CONFIG += plugin
-QMAKE_CXXFLAGS += -std=c++14
+QMAKE_CXXFLAGS += -std=c++11
 
 target.path += $$[QT_INSTALL_PLUGINS]/geoservices/
 INSTALLS += target
 
+#    src/qgeoroutingmanagerengineosmscoutoffline.h \
 HEADERS += \
     src/qgeoserviceproviderfactoryosmscoutoffline.h \
     src/qgeotiledmappingmanagerengineosmscoutoffline.h \
-    src/qgeoroutingmanagerengineosmscoutoffline.h \
     src/qgeotilefetcherosmscoutoffline.h \
     src/qgeomapreplyosmscoutoffline.h
 
+#    src/qgeoroutingmanagerengineosmscoutoffline.cpp \
 SOURCES += \
     src/qgeoserviceproviderfactoryosmscoutoffline.cpp \
     src/qgeotiledmappingmanagerengineosmscoutoffline.cpp \
-    src/qgeoroutingmanagerengineosmscoutoffline.cpp \
     src/qgeotilefetcherosmscoutoffline.cpp \
     src/qgeomapreplyosmscoutoffline.cpp
 

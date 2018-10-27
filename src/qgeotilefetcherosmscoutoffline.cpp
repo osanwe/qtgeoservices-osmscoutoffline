@@ -14,9 +14,8 @@ void QGeoTileFetcherOsmScoutOffline::setParams(const QMap<QString, QVariant> &pa
 QGeoTiledMapReply *QGeoTileFetcherOsmScoutOffline::getTileImage(const QGeoTileSpec &spec)
 {
     QUrlQuery query;
-    for_each(m_params.begin(), m_params.end(), [&query](QMap<QString, QVariant>::iterator &it) {
-        query.addQueryItem(it.key(), it.value().toString());
-    });
+    for (QString &key : m_params.keys())
+        query.addQueryItem(key, m_params[key].toString());
     query.addQueryItem(QStringLiteral("x"), QString::number(spec.x()));
     query.addQueryItem(QStringLiteral("y"), QString::number(spec.y()));
     query.addQueryItem(QStringLiteral("z"), QString::number(spec.zoom()));

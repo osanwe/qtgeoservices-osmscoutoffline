@@ -26,7 +26,7 @@ void QGeoMapReplyOsmScoutOffline::abort()
     m_reply->abort();
 }
 
-QNetworkReply *QGeoMapReplyOsmScoutOffline::networkReply()
+QNetworkReply *QGeoMapReplyOsmScoutOffline::networkReply() const
 {
     return m_reply;
 }
@@ -39,7 +39,7 @@ void QGeoMapReplyOsmScoutOffline::replyDestroyed()
 void QGeoMapReplyOsmScoutOffline::networkReplyFinished()
 {
     if (!m_reply) return;
-    if (m_reply->error() != QNetworkReply::NetworkError) return;
+    if (m_reply->error() != QNetworkReply::NoError) return;
     QByteArray data = m_reply->readAll();
     setMapImageData(data);
     setMapImageFormat("png");
