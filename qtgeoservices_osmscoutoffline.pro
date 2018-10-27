@@ -9,11 +9,13 @@ INSTALLS += target
 
 HEADERS += \
     src/qgeoserviceproviderfactoryosmscoutoffline.h \
-    src/qgeotiledmappingmanagerengineosmscoutoffline.h
+    src/qgeotiledmappingmanagerengineosmscoutoffline.h \
+    src/qgeoroutingmanagerengineosmscoutoffline.h
 
 SOURCES += \
     src/qgeoserviceproviderfactoryosmscoutoffline.cpp \
-    src/qgeotiledmappingmanagerengineosmscoutoffline.cpp
+    src/qgeotiledmappingmanagerengineosmscoutoffline.cpp \
+    src/qgeoroutingmanagerengineosmscoutoffline.cpp
 
 DISTFILES += \
     rpm/qtgeoservices_osmscoutoffline.spec \

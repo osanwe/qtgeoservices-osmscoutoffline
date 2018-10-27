@@ -4,6 +4,9 @@
 #include <QGeoServiceProviderFactory>
 #include <QObject>
 
+#include "qgeoroutingmanagerengineosmscoutoffline.h"
+#include "qgeotiledmappingmanagerengineosmscoutoffline.h"
+
 class QGeoServiceProviderFactoryOsmScoutOffline : public QObject, public QGeoServiceProviderFactory
 {
     Q_OBJECT
