@@ -8,10 +8,12 @@ target.path += $$[QT_INSTALL_PLUGINS]/geoservices/
 INSTALLS += target
 
 HEADERS += \
+    src/qgeoserviceproviderfactoryosmscoutoffline.h
 
 SOURCES += \
-    src/qtgeoservices_osmscoutoffline.cpp
+    src/qgeoserviceproviderfactoryosmscoutoffline.cpp
 
 DISTFILES += \
     rpm/qtgeoservices_osmscoutoffline.spec \
-    rpm/qtgeoservices_osmscoutoffline.yaml
+    rpm/qtgeoservices_osmscoutoffline.yaml \
+    src/osmscoutoffline_plugin.json

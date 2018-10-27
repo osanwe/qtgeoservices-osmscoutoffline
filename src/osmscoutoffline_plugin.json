@@ -1,0 +1,10 @@
+{
+    "Keys": ["osmscoutoffline"],
+    "Provider": ["osmscoutoffline"],
+    "Version": 1,
+    "Experimental": false,
+    "Features": [
+        "OfflineMappingFeature",
+        "OfflineRoutingFeature"
+    ]
+}
