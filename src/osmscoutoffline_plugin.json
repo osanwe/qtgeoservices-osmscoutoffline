@@ -1,7 +1,7 @@
 {
     "Keys": ["osmscoutoffline"],
     "Provider": ["osmscoutoffline"],
-    "Version": 1,
+    "Version": 100,
     "Experimental": false,
     "Features": [
         "OnlineMappingFeature"
