@@ -8,6 +8,7 @@ QGeoTiledMappingManagerEngineOsmScoutOffline::QGeoTiledMappingManagerEngineOsmSc
     cameraCaps.setMinimumZoomLevel(0.0);
     cameraCaps.setMaximumZoomLevel(19.0);
     setCameraCapabilities(cameraCaps);
+
     setTileSize(QSize(256, 256));
 
     QList<QGeoMapType> mapTypes;
@@ -15,7 +16,9 @@ QGeoTiledMappingManagerEngineOsmScoutOffline::QGeoTiledMappingManagerEngineOsmSc
                             false, false, 1);
     setSupportedMapTypes(mapTypes);
 
-    // TODO: Add Fetcher
+    QGeoTileFetcherOsmScoutOffline *tileFetcher = new QGeoTileFetcherOsmScoutOffline(this);
+    tileFetcher->setParams(parameters);
+    setTileFetcher(tileFetcher);
 
     *error = QGeoServiceProvider::NoError;
     errorString->clear();

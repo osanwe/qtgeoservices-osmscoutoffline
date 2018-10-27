@@ -4,6 +4,8 @@
 #include <QGeoServiceProvider>
 #include <QtLocation/private/qgeotiledmappingmanagerengine_p.h>
 
+#include "qgeotilefetcherosmscoutoffline.h"
+
 class QGeoTiledMappingManagerEngineOsmScoutOffline : public QGeoTiledMappingManagerEngine
 {
     Q_OBJECT
