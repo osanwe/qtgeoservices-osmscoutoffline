@@ -14,7 +14,7 @@ class QGeoTiledMappingManagerEngineOsmScoutOffline : public QGeoTiledMappingMana
     Q_OBJECT
 
 public:
-    explicit QGeoTiledMappingManagerEngineOsmScoutOffline(const QMap<QString, QVariant> &parameters,
+    explicit QGeoTiledMappingManagerEngineOsmScoutOffline(const QVariantMap &parameters,
                                                           QGeoServiceProvider::Error *error,
                                                           QString *errorString);
     QGeoMapData *createMapData();

@@ -16,12 +16,12 @@ class QGeoTileFetcherOsmScoutOffline : public QGeoTileFetcher
 
 public:
     explicit QGeoTileFetcherOsmScoutOffline(QGeoTiledMappingManagerEngine *parent = 0);
-    void setParams(const QMap<QString, QVariant> &params);
+    void setParams(const QVariantMap &params);
 
 private:
     QGeoTiledMapReply *getTileImage(const QGeoTileSpec &spec);
 
-    QMap<QString, QVariant> m_params;
+    QVariantMap m_params;
     QNetworkAccessManager *m_networkManager;
 };
 

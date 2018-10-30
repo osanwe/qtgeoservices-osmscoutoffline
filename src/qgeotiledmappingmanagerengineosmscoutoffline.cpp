@@ -1,7 +1,7 @@
 #include "qgeotiledmappingmanagerengineosmscoutoffline.h"
 
 QGeoTiledMappingManagerEngineOsmScoutOffline::QGeoTiledMappingManagerEngineOsmScoutOffline(
-        const QMap<QString, QVariant> &parameters, QGeoServiceProvider::Error *error,
+        const QVariantMap &parameters, QGeoServiceProvider::Error *error,
         QString *errorString)
 {
     QGeoCameraCapabilities cameraCaps;

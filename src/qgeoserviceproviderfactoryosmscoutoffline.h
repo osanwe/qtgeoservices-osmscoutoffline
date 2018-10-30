@@ -13,10 +13,10 @@ class QGeoServiceProviderFactoryOsmScoutOffline : public QObject, public QGeoSer
     Q_OBJECT
     Q_INTERFACES(QGeoServiceProviderFactory)
     Q_PLUGIN_METADATA(IID "org.qt-project.qt.geoservice.serviceproviderfactory/5.0"
-                      FILE "osmscoutoffline_plugin.json")
+                      FILE "../osmscoutoffline_plugin.json")
 
 public:
-    QGeoMappingManagerEngine *createMappingManagerEngine(const QMap<QString, QVariant> &parameters,
+    QGeoMappingManagerEngine *createMappingManagerEngine(const QVariantMap &parameters,
                                                          QGeoServiceProvider::Error *error,
                                                          QString *errorString) const;
 //    QGeoRoutingManagerEngine *createRoutingManagerEngine(const QMap<QString, QVariant> &parameters,

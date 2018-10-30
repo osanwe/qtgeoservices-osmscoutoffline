@@ -25,4 +25,4 @@ SOURCES += \
 DISTFILES += \
     rpm/qtgeoservices_osmscoutoffline.spec \
     rpm/qtgeoservices_osmscoutoffline.yaml \
-    src/osmscoutoffline_plugin.json
+    osmscoutoffline_plugin.json

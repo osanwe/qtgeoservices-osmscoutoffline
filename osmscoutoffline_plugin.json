@@ -1,6 +1,6 @@
 {
     "Keys": ["osmscoutoffline"],
-    "Provider": ["osmscoutoffline"],
+    "Provider": "osmscoutoffline",
     "Version": 100,
     "Experimental": false,
     "Features": [

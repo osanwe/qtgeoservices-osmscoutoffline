@@ -6,7 +6,7 @@ QGeoTileFetcherOsmScoutOffline::QGeoTileFetcherOsmScoutOffline(
     , m_networkManager(new QNetworkAccessManager(this))
 {}
 
-void QGeoTileFetcherOsmScoutOffline::setParams(const QMap<QString, QVariant> &params)
+void QGeoTileFetcherOsmScoutOffline::setParams(const QVariantMap &params)
 {
     m_params = params;
 }
