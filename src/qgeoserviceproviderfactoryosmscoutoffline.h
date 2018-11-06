@@ -5,7 +5,7 @@
 #include <QObject>
 #include <QtLocation/private/qgeotiledmappingmanagerengine_p.h>
 
-//#include "qgeoroutingmanagerengineosmscoutoffline.h"
+#include "qgeoroutingmanagerengineosmscoutoffline.h"
 #include "qgeotiledmappingmanagerengineosmscoutoffline.h"
 
 class QGeoServiceProviderFactoryOsmScoutOffline : public QObject, public QGeoServiceProviderFactory
@@ -16,12 +16,12 @@ class QGeoServiceProviderFactoryOsmScoutOffline : public QObject, public QGeoSer
                       FILE "../osmscoutoffline_plugin.json")
 
 public:
+    QGeoRoutingManagerEngine *createRoutingManagerEngine(const QVariantMap &parameters,
+                                                         QGeoServiceProvider::Error *error,
+                                                         QString *errorString) const;
     QGeoMappingManagerEngine *createMappingManagerEngine(const QVariantMap &parameters,
                                                          QGeoServiceProvider::Error *error,
                                                          QString *errorString) const;
-//    QGeoRoutingManagerEngine *createRoutingManagerEngine(const QMap<QString, QVariant> &parameters,
-//                                                         QGeoServiceProvider::Error *error,
-//                                                         QString *errorString) const;
 };
 
 #endif // QGEOSERVICEPROVIDERFACTORYOSMSCOUTOFFLINE_H
