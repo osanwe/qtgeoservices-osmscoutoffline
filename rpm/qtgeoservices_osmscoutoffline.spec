@@ -12,12 +12,12 @@ Name:       qtgeoservices_osmscoutoffline
 %{!?qtc_qmake5:%define qtc_qmake5 %qmake5}
 %{!?qtc_make:%define qtc_make make}
 %{?qtc_builddir:%define _builddir %qtc_builddir}
-Summary:    QtGeoServices OSM Scout Offline
-Version:    0.1
+Summary:    QtGeoServices OSM Scout Offline with Sight Safary routing
+Version:    0.5.0
 Release:    1
 Group:      System/Libraries
-License:    LICENSE
-URL:        http://example.org/
+License:    BSD-3-Clause
+URL:        https://github.com/osanwe/qtgeoservices-osmscoutoffline
 Source0:    %{name}-%{version}.tar.bz2
 Source100:  qtgeoservices_osmscoutoffline.yaml
 BuildRequires:  pkgconfig(Qt5Core)
@@ -26,7 +26,7 @@ BuildRequires:  pkgconfig(Qt5Positioning)
 BuildRequires:  pkgconfig(Qt5Network)
 
 %description
-Short description of my Sailfish OS Application
+QtGeoServices OSM Scout Offline with Sight Safary routing
 
 
 %prep
