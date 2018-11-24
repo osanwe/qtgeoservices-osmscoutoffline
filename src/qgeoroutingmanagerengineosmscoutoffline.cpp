@@ -1,10 +1,10 @@
 #include "qgeoroutingmanagerengineosmscoutoffline.h"
 
 QGeoRoutingManagerEngineOsmScoutOffline::QGeoRoutingManagerEngineOsmScoutOffline(
-        const QVariantMap &parameters, QGeoServiceProvider::Error *error,
-        QString *errorString) : QGeoRoutingManagerEngine(parameters)
+        const QVariantMap &parameters, QGeoServiceProvider::Error *error, QString *errorString)
+    : QGeoRoutingManagerEngine(parameters), mNetworkManager(new QNetworkAccessManager(this))
 {
-    mNetworkManager = new QNetworkAccessManager();
+    mUrlPrefix = QStringLiteral("https://sightsafari.city/pathfindingcontroller/findpath");
 
     *error = QGeoServiceProvider::NoError;
     errorString->clear();
@@ -12,10 +12,7 @@ QGeoRoutingManagerEngineOsmScoutOffline::QGeoRoutingManagerEngineOsmScoutOffline
 
 
 QGeoRoutingManagerEngineOsmScoutOffline::~QGeoRoutingManagerEngineOsmScoutOffline()
-{
-    mNetworkManager->deleteLater();
-    mNetworkManager = nullptr;
-}
+{}
 
 
 QGeoRouteReply *QGeoRoutingManagerEngineOsmScoutOffline::calculateRoute(
@@ -24,7 +21,7 @@ QGeoRouteReply *QGeoRoutingManagerEngineOsmScoutOffline::calculateRoute(
     QGeoCoordinate start = request.waypoints()[0];
     QGeoCoordinate end = request.waypoints()[1];
 
-    QUrl requestUrl("https://sightsafari.city/pathfindingcontroller/findpath");
+    QUrl requestUrl(mUrlPrefix);
     QUrlQuery urlQuery;
     urlQuery.addQueryItem("from", QString("%1,%2").arg(QString::number(start.latitude()),
                                                        QString::number(start.longitude())));
@@ -34,26 +31,32 @@ QGeoRouteReply *QGeoRoutingManagerEngineOsmScoutOffline::calculateRoute(
     requestUrl.setQuery(urlQuery);
     qDebug() << requestUrl;
     QNetworkRequest remoteRequest(requestUrl);
+
     QNetworkReply *reply = mNetworkManager->get(remoteRequest);
 
-    QEventLoop loop;
-    connect(reply, SIGNAL(finished()), &loop, SLOT(quit()));
-    loop.exec();
+    QGeoRouteReplyOsmScoutOffline *routeReply = new QGeoRouteReplyOsmScoutOffline(reply, request, this);
+    connect(routeReply, SIGNAL(finished()), this, SLOT(replyFinished()));
+    connect(routeReply, SIGNAL(error(QGeoRouteReply::Error,QString)),
+            this, SLOT(replyError(QGeoRouteReply::Error,QString)));
 
-    qDebug() << reply->errorString();
-    QJsonDocument jDoc = QJsonDocument::fromJson(reply->readAll());
-    QJsonArray jPath = jDoc.object().value("latLonPoints").toArray();
+    return routeReply;
+}
 
-    QList<QGeoCoordinate> coords;
-    for (QJsonValue value : jPath)
-    {
-        QJsonArray coord = value.toArray();
-        coords.append(QGeoCoordinate(coord.at(0).toDouble(), coord.at(1).toDouble()));
-    }
 
-    QGeoRoute route;
-    route.setPath(coords);
-    QList<QGeoRoute> routes = {route};
+void QGeoRoutingManagerEngineOsmScoutOffline::replyFinished()
+{
+    qDebug() << "Finished";
+    QGeoRouteReply *reply = qobject_cast<QGeoRouteReply *>(sender());
+    if (reply)
+        emit finished(reply);
+}
 
-    return new QGeoRouteReplyOsmScoutOffline(routes, QGeoRouteReply::NoError, "");
+
+void QGeoRoutingManagerEngineOsmScoutOffline::replyError(QGeoRouteReply::Error errorCode,
+                                                         const QString &errorString)
+{
+    qDebug() << "Error " << errorString;
+    QGeoRouteReply *reply = qobject_cast<QGeoRouteReply *>(sender());
+    if (reply)
+        emit error(reply, errorCode, errorString);
 }

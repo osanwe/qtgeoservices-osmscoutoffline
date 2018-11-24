@@ -17,7 +17,8 @@
 #include <QGeoRoute>
 
 #include <QGeoServiceProvider>
-#include <QtLocation/qgeoroutingmanagerengine.h>
+#include <QtLocation/QGeoRoutingManagerEngine>
+//#include <QtLocation/qgeoroutingmanagerengine.h>
 #include <QtLocation/private/qgeoroutingmanagerengine_p.h>
 
 #include <QDebug>
@@ -33,10 +34,19 @@ public:
                                                      QGeoServiceProvider::Error *error,
                                                      QString *errorString);
     ~QGeoRoutingManagerEngineOsmScoutOffline();
+
     QGeoRouteReply *calculateRoute(const QGeoRouteRequest &request);
+//    const QGeoRouteParser *routeParser() const;
+
+private Q_SLOTS:
+    void replyFinished();
+    void replyError(QGeoRouteReply::Error errorCode, const QString &errorString);
 
 private:
     QNetworkAccessManager *mNetworkManager = nullptr;
+//    QGeoRouteParser *mRouteParser;
+    QByteArray mUserAgent;
+    QString mUrlPrefix;
 };
 
 #endif // QGEOROUTINGMANAGERENGINEOSMSCOUTOFFLINE_H
