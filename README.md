@@ -1,6 +1,8 @@
 # OSM Scout Offline & Sight Safary Qt Map Plugin
 
-Based on [OSM Qt Map Plugin](https://code.woboq.org/qt5/qtlocation/src/plugins/geoservices/osm/)
+Based on [OSM Qt Map Plugin](https://code.woboq.org/qt5/qtlocation/src/plugins/geoservices/osm/).
+Uses [OSM Scout Server](https://github.com/osanwe/qtgeoservices-osmscoutoffline#osm-scout-offline-service)
+for getting tiles and [Sight Safary](https://sightsafari.city/) service for routing.
 
 ## Usage
 
@@ -25,7 +27,6 @@ Page {
             map.zoomLevel = 14
             map.center = QtPositioning.coordinate(55.7542, 37.6221)
 
-            // Red Square, Moscow
             mapRouteQuery.addWaypoint(QtPositioning.coordinate(55.7708, 37.5944))
             mapRouteQuery.addWaypoint(QtPositioning.coordinate(55.7513, 37.6286))
             mapRouteModel.update()
