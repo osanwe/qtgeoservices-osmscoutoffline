@@ -3,8 +3,7 @@
 
 
 #include <QtNetwork/QNetworkReply>
-//#include <QtLocation/QGeoRouteReply>
-#include <QtLocation/private/qgeoroutereply_p.h>
+#include <QtLocation/QGeoRouteReply>
 
 #include <QDebug>
 

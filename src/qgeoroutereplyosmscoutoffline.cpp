@@ -16,7 +16,6 @@ QGeoRouteReplyOsmScoutOffline::QGeoRouteReplyOsmScoutOffline(QNetworkReply *repl
     connect(reply, SIGNAL(finished()), this, SLOT(networkReplyFinished()));
     connect(reply, SIGNAL(error(QNetworkReply::NetworkError)),
             this, SLOT(networkReplyError(QNetworkReply::NetworkError)));
-//    connect(this, &QGeoRouteReply::aborted, reply, &QNetworkReply::abort);
     connect(this, &QObject::destroyed, reply, &QObject::deleteLater);
 }
 
