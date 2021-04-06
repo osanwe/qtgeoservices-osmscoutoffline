@@ -1,2 +1,8 @@
-*.user
-
+.mb2
+RPMS
+*.list
+*.md.backup
+*.o
+*.pro.user*
+Makefile
+qtgeoservices_osmscoutoffline
