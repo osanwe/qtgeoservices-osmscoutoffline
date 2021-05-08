@@ -58,7 +58,7 @@ Page {
 
 ## OSM Scout Offline service
 
-The following steps is actual for Sailfish OS.
+The following steps is actual for Sailfish OS / Aurora OS.
 In your tasks you can use a pure [`libosmscout`](http://libosmscout.sourceforge.net/) library.
 
 1. Install [`OSM Scout Server`](https://openrepos.net/content/rinigus/osm-scout-server)
